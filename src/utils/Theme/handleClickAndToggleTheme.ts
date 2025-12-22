@@ -1,4 +1,5 @@
 import { toastHotAdapter } from "../../adapters/Toast/ToastHot/toastHotAdapter";
+import { THEME_NAME } from "../../constants/themeConstant";
 import type {
 	ThemeType,
 	TypesOfThemes,
@@ -13,4 +14,7 @@ export function handleClickAndToggleTheme(
 
 	/* toastHotAdapter.info(`O tema atualmente é ${type}`); */
 	toastHotAdapter.success(`O tema atualmente é: ${nextTheme}`);
+
+	document.documentElement.setAttribute("data-theme", type);
+	localStorage.setItem(THEME_NAME, type);
 }
