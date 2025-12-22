@@ -1,5 +1,5 @@
 import type { MovieStatesModel } from "../../models/MovieStatesModel";
-import { searchMovie } from "../../pages/Movies/code/apiRequest";
+import { searchMovie } from "../../services/fetchMovies";
 
 export async function handleClickMoviesFn(
 	idInputElement: string,
