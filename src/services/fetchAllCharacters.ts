@@ -1,4 +1,4 @@
-import type { CharacterType } from "./CharacterType";
+import type { CharacterType } from "../types/CharacterType";
 
 export async function fetchCharacters(): Promise<CharacterType> {
 	const url = `https://potterapi-fedeperin.vercel.app/pt/characters`;

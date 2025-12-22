@@ -52,7 +52,7 @@ function CharactersComponents() {
 	);
 }
 
-export function Characters() {
+export function CharactersPage() {
 	return (
 		<CharacterContextProvider>
 			<CharactersComponents />

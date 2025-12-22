@@ -1,7 +1,7 @@
 import { Container } from "../../components/Container";
 import styles from "./styles.module.css";
 
-export function Home() {
+export function HomePage() {
 	return (
 		<Container>
 			<section className={styles.content}>
