@@ -1,7 +1,7 @@
 import { MoviesComponents } from "..";
 import { useMovieContext } from "../../../contexts/MovieContext/useMovieContext";
 import type { MovieStatesModel } from "../../../models/MovieStatesModel";
-import type { Movie } from "../code/MoviesTypes";
+import type { Movie } from "../../../types/MoviesTypes";
 import styles from "./styles.module.css";
 
 export function SetAllMovies(/* { allMovies, onSelectMovie }: SetAllMoviesProps */) {

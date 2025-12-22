@@ -1,6 +1,6 @@
 import { BoxListItens } from "../../../components/BoxListItens";
 import { useCharacterContext } from "../../../contexts/CharacterContext/useCharacterContext";
-import type { CharacterType } from "../code/CharacterType";
+import type { CharacterType } from "../../../types/CharacterType";
 
 import styles from "./styles.module.css";
 
