@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Container } from "../../components/Container";
 import { SearchDefault } from "../../components/SearchDefault";
-import type { SpellType, SpellTypeWithUrl } from "./code/SpellType";
-import { getSpells, getSpellsWithImages } from "./code/apiRequest";
+import type { SpellType } from "../../types/SpellType";
+import { getSpells } from "../../services/fetchSpells";
 
-import styles from "./style.module.css";
+/* import styles from "./style.module.css"; */
 import { SetAllSpells } from "./SetAllSpells";
 
 export function Spells() {

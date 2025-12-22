@@ -1,41 +1,78 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { FaFilm, FaUserFriends } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
+
+import { GiMagicSwirl } from "react-icons/gi";
+import { PageRoutesNames } from "../../constants/PageRoutesName";
 
 import styles from "./styles.module.css";
-import { Theme } from "../Theme";
-import { AiFillHome } from "react-icons/ai";
-import { FaFilm, FaUserFriends } from "react-icons/fa";
-import { GiMagicSwirl } from "react-icons/gi";
+import { handleClickAndToggleTheme } from "../../utils/Theme/handleClickAndToggleTheme";
+import { useThemeContext } from "../../contexts/ThemeContext/useThemeContext";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 export function Navbar() {
+	const navigate = useNavigate();
+
+	const {
+		value: { type: theme },
+		setTheme: setActualTheme,
+	} = useThemeContext();
+
+	const nextThemeIcon = {
+		classic: <SunIcon />,
+		light: <MoonIcon />,
+	};
+
 	return (
 		<nav className={styles.listContainer}>
 			<ul className={styles.ulList}>
-				<li className={`${styles.item} ${styles.home}`}>
-					<Link to="/">
-						<AiFillHome />
-						<p>Home</p>
-					</Link>
+				<li
+					className={`${styles.item} ${styles.home}`}
+					onClick={() => {
+						navigate(PageRoutesNames.home);
+					}}
+				>
+					<AiFillHome />
+					<p>Home</p>
 				</li>
-				<li className={`${styles.item} ${styles.movies}`}>
-					<Link to="/movies">
-						<FaFilm />
-						<p>Filmes</p>
-					</Link>
+				<li
+					className={`${styles.item} ${styles.movies}`}
+					onClick={() => {
+						navigate(PageRoutesNames.movies);
+					}}
+				>
+					<FaFilm />
+					<p>Filmes</p>
 				</li>
-				<li className={`${styles.item} ${styles.characters}`}>
-					<Link to="/characters">
-						<FaUserFriends />
-						<p>Personagens</p>
-					</Link>
+				<li
+					className={`${styles.item} ${styles.characters}`}
+					onClick={() => {
+						navigate(PageRoutesNames.characters);
+					}}
+				>
+					<FaUserFriends />
+					<p>Personagens</p>
 				</li>
-				<li className={`${styles.item} ${styles.spells}`}>
-					<Link to="/spells">
-						<GiMagicSwirl />
-						<p>Feitiços</p>
-					</Link>
+				<li
+					className={`${styles.item} ${styles.spells}`}
+					onClick={() => {
+						navigate(PageRoutesNames.spells);
+					}}
+				>
+					<GiMagicSwirl />
+					<p>Feitiços</p>
 				</li>
-				<li className={`${styles.item} ${styles.theme}`}>
-					<Theme />
+				<li
+					className={`${styles.item} ${styles.theme}`}
+					onClick={() =>
+						handleClickAndToggleTheme(theme, setActualTheme)
+					}
+				>
+					<div title={`Tema atual: ${theme}`}>
+						{nextThemeIcon[theme]}
+						{<p>Mudar Tema</p>}
+					</div>
 				</li>
 			</ul>
 		</nav>

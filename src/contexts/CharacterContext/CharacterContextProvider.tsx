@@ -3,8 +3,8 @@ import {
 	CharacterContext,
 	type CharacterContextType,
 } from "./CharacterContext";
-import type { CharacterType } from "../../pages/Characters/code/CharacterType";
-import { searchEspecificCharacter } from "../../pages/Characters/code/characters";
+import type { CharacterType } from "../../types/CharacterType";
+import { searchEspecificCharacter } from "../../services/fetchAllCharacters";
 
 type CharacterContextProviderProps = {
 	children: React.ReactNode;

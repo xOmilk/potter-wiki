@@ -1,7 +1,6 @@
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useThemeContext } from "../../contexts/ThemeContext/useThemeContext";
 import { handleClickAndToggleTheme } from "../../utils/Theme/handleClickAndToggleTheme";
-import { useEffect } from "react";
 
 const nextThemeIcon = {
 	classic: <SunIcon />,
@@ -13,12 +12,6 @@ export function Theme() {
 		value: { type: theme },
 		setTheme: setActualTheme,
 	} = useThemeContext();
-
-	useEffect(() => {
-		//Cada vez que meu tema mudar
-		document.documentElement.setAttribute("data-theme", theme);
-		localStorage.setItem("potterwiki-theme", theme);
-	}, [theme]);
 
 	return (
 		<div

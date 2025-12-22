@@ -1,7 +1,6 @@
 import { BoxListItens } from "../../../components/BoxListItens";
-import { Container } from "../../../components/Container";
 
-import type { SpellType } from "../code/SpellType";
+import type { SpellType } from "../../../types/SpellType";
 
 import styles from "./styles.module.css";
 

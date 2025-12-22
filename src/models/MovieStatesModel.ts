@@ -1,4 +1,4 @@
-import type { Movie } from "../pages/Movies/code/MoviesTypes";
+import type { Movie } from "../types/MoviesTypes";
 
 export type MovieStatesModel = {
 	wantedMovie: {

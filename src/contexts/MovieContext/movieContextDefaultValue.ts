@@ -1,5 +1,5 @@
 import type { MovieStatesModel } from "../../models/MovieStatesModel";
-import type { Movie } from "../../pages/Movies/code/MoviesTypes";
+import type { Movie } from "../../types/MoviesTypes";
 
 const noopSetWantedMovie: React.Dispatch<
 	React.SetStateAction<Movie | null>
