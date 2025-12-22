@@ -1,6 +1,6 @@
 import { BoxListItens } from "../../../components/BoxListItens";
-import { formatSpellNameForUrl } from "../code/apiRequest";
-import type { SpellType, SpellTypeWithUrl } from "../code/SpellType";
+import { formatSpellNameForUrl } from "../../../services/fetchSpells";
+import type {  SpellTypeWithUrl } from "../../../types/SpellType";
 
 import styles from "./styles.module.css";
 

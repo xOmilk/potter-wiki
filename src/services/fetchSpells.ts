@@ -1,4 +1,4 @@
-import type { SpellType } from "./SpellType";
+import type { SpellType } from "../types/SpellType";
 
 export async function getSpells() {
 	const url = `https://potterapi-fedeperin.vercel.app/pt/spells`;
@@ -38,6 +38,7 @@ export async function getSpellsWithImages() {
 
 			return spellData;
 		} catch (e) {
+			console.log(e);
 			return spellData;
 		}
 	});

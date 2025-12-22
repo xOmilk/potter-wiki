@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { CharacterType } from "../../pages/Characters/code/CharacterType";
+import type { CharacterType } from "../../types/CharacterType";
 
 export type EspecificCharacter = {
 	value: CharacterType;

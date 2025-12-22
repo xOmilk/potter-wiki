@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MovieContext } from "./MovieContext";
-import type { Movie } from "../../pages/Movies/code/MoviesTypes";
+import type { Movie } from "../../types/MoviesTypes";
 
 type MovieContextProviderProps = {
 	children: React.ReactNode;
