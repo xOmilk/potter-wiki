@@ -9,7 +9,7 @@ import { PageRoutesNames } from "../../constants/PageRoutesName";
 import styles from "./styles.module.css";
 import { handleClickAndToggleTheme } from "../../utils/Theme/handleClickAndToggleTheme";
 import { useThemeContext } from "../../contexts/ThemeContext/useThemeContext";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, PawPrintIcon, SunIcon } from "lucide-react";
 
 export function Navbar() {
 	const navigate = useNavigate();
@@ -62,6 +62,15 @@ export function Navbar() {
 				>
 					<GiMagicSwirl />
 					<p>Feitiços</p>
+				</li>
+				<li
+					className={`${styles.item} ${styles.spells}`}
+					onClick={() => {
+						navigate(PageRoutesNames.creatures);
+					}}
+				>
+					<PawPrintIcon />
+					<p>Criaturas</p>
 				</li>
 				<li
 					className={`${styles.item} ${styles.theme}`}

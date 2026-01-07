@@ -5,6 +5,7 @@ import { CharactersPage } from "../../pages/CharacterPage";
 import { Movies } from "../../pages/MoviePage";
 import { Spells } from "../../pages/Spells";
 import { HomePage } from "../../pages/HomePage";
+import { CreaturesPage } from "../../pages/CreaturesPage";
 
 export function AppRouter() {
 	return (
@@ -17,6 +18,10 @@ export function AppRouter() {
 				/>
 				<Route path={PageRoutesNames.movies} element={<Movies />} />
 				<Route path={PageRoutesNames.spells} element={<Spells />} />
+				<Route
+					path={PageRoutesNames.creatures}
+					element={<CreaturesPage />}
+				/>
 			</Route>
 		</Routes>
 	);

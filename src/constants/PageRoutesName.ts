@@ -3,4 +3,5 @@ export const PageRoutesNames = {
 	movies: "/movies",
 	characters: "/characters",
 	spells: "/spells",
+	creatures: "/creatures",
 };
