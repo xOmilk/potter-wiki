@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { FaFilm, FaUserFriends } from "react-icons/fa";
+import { FaFilm, FaUserFriends, FaBook } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 
 import { GiMagicSwirl } from "react-icons/gi";
@@ -62,6 +62,15 @@ export function Navbar() {
 				>
 					<GiMagicSwirl />
 					<p>Feitiços</p>
+				</li>
+				<li
+					className={`${styles.item} ${styles.books}`}
+					onClick={() => {
+						navigate(PageRoutesNames.books);
+					}}
+				>
+					<FaBook />
+					<p>Livros</p>
 				</li>
 				<li
 					className={`${styles.item} ${styles.theme}`}
