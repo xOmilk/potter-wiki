@@ -11,15 +11,9 @@ export type allCharacters = {
 	setAllCharacters: React.Dispatch<React.SetStateAction<CharacterType[]>>;
 };
 
-export type ShowAllCharacters = {
-	value: boolean;
-	setShowAllCharacters: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
 export type CharacterContextType = {
 	especificCharacter: EspecificCharacter;
 	allCharacters: allCharacters;
-	showAllCharacters: ShowAllCharacters;
 };
 
 export const defaultCharacterValue: CharacterContextType = {
@@ -27,7 +21,6 @@ export const defaultCharacterValue: CharacterContextType = {
 		value: [],
 		setAllCharacters: () => {},
 	},
-	showAllCharacters: { value: true, setShowAllCharacters: () => {} },
 	especificCharacter: {
 		value: {
 			fullName: "",

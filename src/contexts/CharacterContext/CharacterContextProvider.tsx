@@ -16,8 +16,6 @@ export function CharacterContextProvider({
 		[]
 	);
 
-	const [showAllCharacters, setShowAllCharacters] = useState<boolean>(true);
-
 	const [especificCharacter, setEspecificCharacter] = useState<CharacterType>(
 		{
 			fullName: "",
@@ -38,10 +36,6 @@ export function CharacterContextProvider({
 		especificCharacter: {
 			value: especificCharacter,
 			setEspecificCharacter,
-		},
-		showAllCharacters: {
-			value: showAllCharacters,
-			setShowAllCharacters,
 		},
 	};
 

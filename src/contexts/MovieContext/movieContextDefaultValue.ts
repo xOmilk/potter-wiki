@@ -1,30 +1,18 @@
 import type { MovieStatesModel } from "../../models/MovieStatesModel";
 import type { Movie } from "../../types/MoviesTypes";
 
-const noopSetWantedMovie: React.Dispatch<
-	React.SetStateAction<Movie | null>
-> = () => {};
 const noopSetAllMoviesData: React.Dispatch<
 	React.SetStateAction<Movie[]>
 > = () => {};
-const noopSetShowAll: React.Dispatch<React.SetStateAction<boolean>> = () => {};
-const noopSetDontShow: React.Dispatch<React.SetStateAction<boolean>> = () => {};
+const noopSetSearchTerm: React.Dispatch<React.SetStateAction<string>> = () => {};
 
 export const movieContextDefaultValue: MovieStatesModel = {
-	wantedMovie: {
-		value: null,
-		setWantedMovie: noopSetWantedMovie,
-	},
 	allMoviesData: {
 		value: [],
 		setAllMoviesData: noopSetAllMoviesData,
 	},
-	showAll: {
-		value: false,
-		setShowAll: noopSetShowAll,
-	},
-	dontShow: {
-		value: false,
-		setDontShow: noopSetDontShow,
+	searchTerm: {
+		value: "",
+		setSearchTerm: noopSetSearchTerm,
 	},
 };

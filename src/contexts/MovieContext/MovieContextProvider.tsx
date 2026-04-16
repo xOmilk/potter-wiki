@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MovieContext } from "./MovieContext";
 import type { Movie } from "../../types/MoviesTypes";
+import { fetchAllMovies } from "../../services/fetchMovies";
 
 type MovieContextProviderProps = {
 	children: React.ReactNode;
 };
 
 export function MovieContextProvider({ children }: MovieContextProviderProps) {
-	const [wantedMovie, setWantedMovie] = useState<Movie | null>(null);
 	const [allMoviesData, setAllMoviesData] = useState<Movie[]>([]);
-	const [showAll, setShowAll] = useState(false);
-	const [dontShow, setDontShow] = useState(false);
+	const [searchTerm, setSearchTerm] = useState<string>("");
+
+	// Fetch all movies on mount
+	useEffect(() => {
+		const fetchMovies = async () => {
+			const movies = await fetchAllMovies();
+			setAllMoviesData(movies);
+		};
+		fetchMovies();
+	}, []);
 
 	const state = {
-		wantedMovie: { value: wantedMovie, setWantedMovie },
 		allMoviesData: { value: allMoviesData, setAllMoviesData },
-		showAll: { value: showAll, setShowAll },
-		dontShow: { value: dontShow, setDontShow },
+		searchTerm: { value: searchTerm, setSearchTerm },
 	};
 
 	return (
