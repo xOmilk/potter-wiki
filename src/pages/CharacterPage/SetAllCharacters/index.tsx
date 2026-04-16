@@ -1,5 +1,5 @@
+import { useNavigate } from "react-router-dom";
 import { BoxListItens } from "../../../components/BoxListItens";
-import { useCharacterContext } from "../../../contexts/CharacterContext/useCharacterContext";
 import type { CharacterType } from "../../../types/CharacterType";
 
 import styles from "./styles.module.css";
@@ -11,10 +11,13 @@ type SetAllCharacterProps = {
 export function SetAllCharacters({
 	filteredCharacters: allCharacters,
 }: SetAllCharacterProps) {
-	const { especificCharacter } = useCharacterContext();
-	const { showAllCharacters } = useCharacterContext();
+	const navigate = useNavigate();
 
 	if (!allCharacters) return;
+
+	const handleCharacterClick = (character: CharacterType) => {
+		navigate(`/characters/${character.index}`);
+	};
 
 	return (
 		<BoxListItens className={styles.container}>
@@ -24,12 +27,7 @@ export function SetAllCharacters({
 						<div
 							key={character.index}
 							className={styles.character}
-							onClick={() => {
-								showAllCharacters.setShowAllCharacters(false);
-								especificCharacter.setEspecificCharacter(
-									character
-								);
-							}}
+							onClick={() => handleCharacterClick(character)}
 						>
 							<img src={character.image} alt="" />
 							<div className={styles.info}>

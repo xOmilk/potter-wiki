@@ -1,24 +1,21 @@
 import { useMemo, useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
 import { SearchDefault } from "../../components/SearchDefault";
 import { Container } from "../../components/Container";
 import { SetAllCharacters } from "./SetAllCharacters";
-import { SetEspecificCharacter } from "./SetEspecifCharacter";
 import { useCharacterContext } from "../../contexts/CharacterContext/useCharacterContext";
-import { CharacterContextProvider } from "../../contexts/CharacterContext/CharacterContextProvider";
 
 CharactersComponents.SetAllCharacters = SetAllCharacters;
-CharactersComponents.SetEspecificCharacter = SetEspecificCharacter;
 
 function CharactersComponents() {
 	const [searchValue, setSearchValue] = useState("");
+	const { index } = useParams();
 
-	const { showAllCharacters } = useCharacterContext();
 	const { allCharacters } = useCharacterContext();
 
 	function onChangeInput(e: React.ChangeEvent<HTMLInputElement>) {
 		const text = e.target.value;
 		setSearchValue(text);
-		showAllCharacters.setShowAllCharacters(true);
 	}
 
 	const filteredCharacters = useMemo(() => {
@@ -29,6 +26,12 @@ function CharactersComponents() {
 		});
 	}, [allCharacters.value, searchValue]);
 
+	// If a character index is in the URL, show the nested route (detail view)
+	if (index) {
+		return <Outlet />;
+	}
+
+	// Otherwise show the list view
 	return (
 		<Container>
 			<SearchDefault>
@@ -40,22 +43,13 @@ function CharactersComponents() {
 				/>
 			</SearchDefault>
 
-			{showAllCharacters.value && (
-				<CharactersComponents.SetAllCharacters
-					filteredCharacters={filteredCharacters}
-				/>
-			)}
-			{!showAllCharacters.value && (
-				<CharactersComponents.SetEspecificCharacter />
-			)}
+			<CharactersComponents.SetAllCharacters
+				filteredCharacters={filteredCharacters}
+			/>
 		</Container>
 	);
 }
 
 export function CharactersPage() {
-	return (
-		<CharacterContextProvider>
-			<CharactersComponents />
-		</CharacterContextProvider>
-	);
+	return <CharactersComponents />;
 }

@@ -1,62 +1,55 @@
+import { useMemo, useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
 import { Container } from "../../components/Container";
-import { SetEspecificMovie } from "./SetEspecificMovie";
 import { SetAllMovies } from "./SetAllMovies";
-import { SearchBar } from "./SearchBar";
-import { FeedbackMessage } from "../../components/FeedbackMessage";
+import { SearchDefault } from "../../components/SearchDefault";
 import { useMovieContext } from "../../contexts/MovieContext/useMovieContext";
-import { MovieContextProvider } from "../../contexts/MovieContext/MovieContextProvider";
-
-import { handleClickMoviesFn } from "../../utils/Movies/handleClickMoviesFn";
 
 MoviesComponents.SetAllMovies = SetAllMovies;
-MoviesComponents.SetEspecificMovie = SetEspecificMovie;
-MoviesComponents.SearchBar = SearchBar;
-MoviesComponents.FeedBackMessage = FeedbackMessage;
 
 export function MoviesComponents() {
 	const { state } = useMovieContext();
-	const idInputElement = "idInputElement";
+	const [searchValue, setSearchValue] = useState("");
+	const { id } = useParams();
 
-	function renderContent() {
-		if (state.dontShow.value) {
-			return (
-				<MoviesComponents.FeedBackMessage
-					titleMessage="Você não digitou nenhum filme válido"
-					tipMessage="Você pode ver todos os filmes ao deixar o campo vazio"
-				/>
-			);
-		}
-		if (state.wantedMovie.value) {
-			return <MoviesComponents.SetEspecificMovie />;
-		}
-		if (state.showAll.value) {
-			return <MoviesComponents.SetAllMovies />;
-		}
-		return (
-			<MoviesComponents.FeedBackMessage
-				titleMessage="Nesta seção você pode ver os filmes feitos"
-				tipMessage="Em caso de não digitar nada você ver a lista de todos os filmes"
-			/>
-		);
+	function onChangeInput(e: React.ChangeEvent<HTMLInputElement>) {
+		const text = e.target.value;
+		setSearchValue(text);
 	}
 
+	const filteredMovies = useMemo(() => {
+		return state.allMoviesData.value.filter((movie) => {
+			return movie.attributes.title
+				.toLowerCase()
+				.includes(searchValue.toLowerCase());
+		});
+	}, [state.allMoviesData.value, searchValue]);
+
+	// If a movie ID is in the URL, show the nested route (detail view)
+	if (id) {
+		return <Outlet />;
+	}
+
+	// Otherwise show the list view
 	return (
 		<div>
-			<MoviesComponents.SearchBar
-				idInputElement={idInputElement}
-				onSearchHandler={() =>
-					handleClickMoviesFn(idInputElement, state)
-				}
-			/>
-			<Container>{renderContent()}</Container>
+			<Container>
+				<SearchDefault>
+					<SearchDefault.Input
+						placeholder="Digite o título do filme"
+						idInputElement="SearchMovie"
+						value={searchValue}
+						onChange={onChangeInput}
+					/>
+				</SearchDefault>
+			</Container>
+			<Container>
+				<MoviesComponents.SetAllMovies movies={filteredMovies} />
+			</Container>
 		</div>
 	);
 }
 
 export function Movies() {
-	return (
-		<MovieContextProvider>
-			<MoviesComponents />
-		</MovieContextProvider>
-	);
+	return <MoviesComponents />;
 }

@@ -1,12 +1,31 @@
-:root {
+:root,
+[data-theme="classic"] {
 	--dark-grey: #1e1e1e;
-
 	--text-color-default: #fff;
 	--golden: #ffe066;
+	--golden-light: #ffd43b;
 	--background-item: rgba(30, 30, 30, 0.85);
+	--background-input: #23211a;
 	--box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-
 	--background-blue: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
-
 	--background-navbar-item: rgba(255, 255, 255, 0.08);
+	--button-bg: #4a3f35;
+	--button-hover: #6b5a50;
+	--border-color: #3d3d3d;
+}
+
+[data-theme="light"] {
+	--dark-grey: #f5f5f5;
+	--text-color-default: #1a1a1a;
+	--text-color-muted: #4a4a4a;
+	--golden: #b8860b;
+	--golden-light: #d4a574;
+	--background-item: rgba(250, 248, 245, 0.98);
+	--background-input: #fff8f0;
+	--box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	--background-blue: linear-gradient(90deg, #f0e9e0 0%, #e8dcc8 100%);
+	--background-navbar-item: rgba(184, 134, 11, 0.08);
+	--button-bg: #b8860b;
+	--button-hover: #a67c52;
+	--border-color: #dcc9b6;
 }

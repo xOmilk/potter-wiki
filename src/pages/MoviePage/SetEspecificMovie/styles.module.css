@@ -4,6 +4,34 @@
 	box-shadow: var(--box-shadow);
 	border-radius: 1rem;
 }
+
+.backButton {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 1.5rem;
+	padding: 0.75rem 1.5rem;
+	background: var(--button-bg);
+	color: var(--text-color-default);
+	border: 2px solid var(--golden);
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+.backButton:hover {
+	background: var(--button-hover);
+	transform: translateX(-4px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.backButton:active {
+	transform: translateX(-2px);
+}
+
 img {
 	height: inherit;
 	float: left;
@@ -28,13 +56,13 @@ img:hover {
 .content .resume h3 {
 	font-size: 2.2rem;
 	margin-bottom: 18px;
-	color: #ffe066;
+	color: var(--golden);
 }
 
 .content .resume p {
 	font-size: 1.1rem;
 	margin-bottom: 10px;
-	color: #f1f1f1;
+	color: var(--text-color-default);
 }
 
 .videoWrapper {

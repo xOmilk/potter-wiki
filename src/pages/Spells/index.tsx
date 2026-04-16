@@ -1,42 +1,31 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { Outlet, useParams } from "react-router-dom";
 import { Container } from "../../components/Container";
 import { SearchDefault } from "../../components/SearchDefault";
-import type { SpellType } from "../../types/SpellType";
-import { getSpells } from "../../services/fetchSpells";
-
-/* import styles from "./style.module.css"; */
+import { useSpellContext } from "../../contexts/SpellContext/useSpellContext";
 import { SetAllSpells } from "./SetAllSpells";
 
-export function Spells() {
+function SpellsComponents() {
 	const [valueText, setValueText] = useState("");
-
-	const [allSpells, setAllSpells] = useState<SpellType[]>([]);
-
-	useEffect(() => {
-		const collectData = async () => {
-			const response = await getSpells();
-			setAllSpells(response);
-		};
-		collectData();
-	}, []);
+	const { spellName } = useParams();
+	const { allSpells } = useSpellContext();
 
 	const filteredSpells = useMemo(() => {
-		return allSpells.filter((spell) =>
+		return allSpells.value.filter((spell) =>
 			spell.spell.toLowerCase().includes(valueText.toLowerCase())
 		);
-	}, [allSpells, valueText]);
-
-	//Forma que o filtro recaulcula em toda renderização
-	/* const filteredSpells = allSpells.filter((spell) =>
-		spell.spell.toLowerCase().includes(valueText.toLowerCase())
-	); */
+	}, [allSpells.value, valueText]);
 
 	function handleChangeTextFn(e: React.ChangeEvent<HTMLInputElement>) {
 		setValueText(e.target.value);
 	}
 
-	console.log(filteredSpells);
+	// If a spell name is in the URL, show the nested route (detail view)
+	if (spellName) {
+		return <Outlet />;
+	}
 
+	// Otherwise show the list view
 	return (
 		<Container>
 			<SearchDefault>
@@ -48,8 +37,11 @@ export function Spells() {
 				/>
 			</SearchDefault>
 
-			{/* Adicionar elemento dentro de um contexto */}
 			{filteredSpells && <SetAllSpells filteredSpells={filteredSpells} />}
 		</Container>
 	);
+}
+
+export function Spells() {
+	return <SpellsComponents />;
 }

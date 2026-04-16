@@ -1,89 +1,67 @@
 import { Container } from "../../components/Container";
+import { useNavigate } from "react-router-dom";
+import { FaFilm, FaUserFriends, FaBook } from "react-icons/fa";
+import { GiMagicSwirl } from "react-icons/gi";
 import styles from "./styles.module.css";
 
 export function HomePage() {
+	const navigate = useNavigate();
+
 	return (
 		<Container>
-			<section className={styles.content}>
-				<div className={styles.top}>
-					<h2>Seja bem vindo a Harry Potter Wiki</h2>
-					<h3>
-						Este é um site desenvolvido sem fins lucrativos a fim de
-						aprendizado
-					</h3>
+			<section className={styles.hero}>
+				<div className={styles.heroContent}>
+					<h1>Bem-vindo à Harry Potter Wiki</h1>
+					<p>Explore o mundo mágico de Harry Potter com informações detalhadas sobre filmes, personagens e feitiços</p>
 				</div>
-				<p>
-					O objetivo desse site é a pratica da biblioteca do React em
-					conjunto com as suas funcionalidades. Funcionalidades e
-					particularidades essas como:
-				</p>
-				<ul>
-					<li>SPAs</li>
-					<li>Components & Props</li>
-					<li>react-router-dom</li>
-					<li>useState</li>
-					<li>useContext</li>
-					<li>useEffect</li>
-					<li>useMemu</li>
-				</ul>
-
-				<p>
-					A utilização de elementos e funcionalidades do JavaScript e
-					TypeScript puro como por exemplo:
-				</p>
-				<ul>
-					<li>
-						fetch{" "}
-						<span>
-							(Para recuperação de dados via APIs distintas)
-						</span>{" "}
-					</li>
-					<li>
-						Promise, async, await{" "}
-						<span>(Trabalhar com dados de forma assíncrona)</span>
-					</li>
-					<li>
-						Tipagem typescript{" "}
-						<span>
-							(A fim de evitar erros no momento de desenvolvimento
-							e seguir boas praticas)
-						</span>
-					</li>
-				</ul>
 			</section>
 
-			<section className={styles.content}>
-				<p>
-					Foram utilizadas algumas APIs para construção do conteudo
-					desse site dentre elas:
-				</p>
-				<ul>
-					<li>
-						<a href="https://potterdb.com/" target="_blank">
-							Potter DB
-						</a>{" "}
-						<span>(Filmes)</span>
-					</li>
-					<li>
-						<a
-							href="https://github.com/fedeperin/potterapi"
-							target="_blank"
-						>
-							Potter API
-						</a>{" "}
-						<span>(Personagens)</span>
-					</li>
-				</ul>
+			<section className={styles.cardsSection}>
+				<div className={styles.card} onClick={() => navigate("/movies")}>
+					<div className={styles.cardIcon}>
+						<FaFilm />
+					</div>
+					<h2>Filmes</h2>
+					<p>Descubra detalhes sobre todos os filmes da saga Harry Potter</p>
+					<button className={styles.cardButton}>Explorar</button>
+				</div>
 
+				<div className={styles.card} onClick={() => navigate("/characters")}>
+					<div className={styles.cardIcon}>
+						<FaUserFriends />
+					</div>
+					<h2>Personagens</h2>
+					<p>Conheça os personagens icônicos do universo mágico</p>
+					<button className={styles.cardButton}>Explorar</button>
+				</div>
+
+				<div className={styles.card} onClick={() => navigate("/spells")}>
+					<div className={styles.cardIcon}>
+						<GiMagicSwirl />
+					</div>
+					<h2>Feitiços</h2>
+					<p>Aprenda sobre os feitiços mais poderosos da magia</p>
+					<button className={styles.cardButton}>Explorar</button>
+				</div>
+
+				<div className={styles.card} onClick={() => navigate("/books")}>
+					<div className={styles.cardIcon}>
+					<FaBook />
+					</div>
+					<h2>Livros</h2>
+					<p>Explore todos os livros oficiais da saga Harry Potter</p>
+					<button className={styles.cardButton}>Explorar</button>
+				</div>
+			</section>
+
+			<section className={styles.aboutSection}>
+				<h2>Sobre este site</h2>
 				<p>
-					A documentação desse site é aberta e pode ser acessada por{" "}
-					<a
-						href="https://github.com/xOmilk/api-harry-potter"
-						target="_blank"
-					>
-						esse link
-					</a>{" "}
-					ou pelo rodapé presente em todas as páginas
+					Esta é uma aplicação educacional criada para explorar e praticar conceitos modernos de desenvolvimento web, 
+					utilizando dados reais do universo de Harry Potter.
+				</p>
+				<p>
+					Todo o código-fonte é aberto e disponível em nossa <a href="https://github.com/xOmilk/potter-wiki" target="_blank" rel="noreferrer">documentação</a>.
 				</p>
 			</section>
 		</Container>

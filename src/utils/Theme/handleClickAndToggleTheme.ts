@@ -15,6 +15,6 @@ export function handleClickAndToggleTheme(
 	/* toastHotAdapter.info(`O tema atualmente é ${type}`); */
 	toastHotAdapter.success(`O tema atualmente é: ${nextTheme}`);
 
-	document.documentElement.setAttribute("data-theme", type);
-	localStorage.setItem(THEME_NAME, type);
+	document.documentElement.setAttribute("data-theme", nextTheme);
+	localStorage.setItem(THEME_NAME, nextTheme);
 }

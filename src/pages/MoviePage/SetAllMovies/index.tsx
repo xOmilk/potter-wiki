@@ -1,26 +1,32 @@
-import { MoviesComponents } from "..";
-import { useMovieContext } from "../../../contexts/MovieContext/useMovieContext";
-import type { MovieStatesModel } from "../../../models/MovieStatesModel";
+import { useNavigate } from "react-router-dom";
+import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import type { Movie } from "../../../types/MoviesTypes";
 import styles from "./styles.module.css";
 
-export function SetAllMovies(/* { allMovies, onSelectMovie }: SetAllMoviesProps */) {
-	const { state } = useMovieContext();
-	const allMovies = state.allMoviesData.value;
+type SetAllMoviesProps = {
+	movies: Movie[];
+};
 
-	if (allMovies.length === 0) return;
+export function SetAllMovies({ movies }: SetAllMoviesProps) {
+	const navigate = useNavigate();
 
-	function handleSelectMovie(movie: Movie, state: MovieStatesModel) {
-		state.wantedMovie.setWantedMovie(movie);
-		state.showAll.setShowAll(false); // Esconde a lista ao selecionar um filme
-
-		console.log(state);
+	if (movies.length === 0) {
+		return (
+			<FeedbackMessage
+				titleMessage="Nenhum filme encontrado"
+				tipMessage="Tente outra busca"
+			/>
+		);
 	}
+
+	const handleMovieClick = (movie: Movie) => {
+		navigate(`/movies/${movie.id}`);
+	};
 
 	return (
 		<div className={styles.container}>
-			<MoviesComponents.FeedBackMessage
-				titleMessage="Por não digitar nada, foi retornado todos os filmes"
+			<FeedbackMessage
+				titleMessage="Lista de Filmes"
 				tipMessage={
 					<span>
 						<u>Clique</u> em algum filme para ver detalhes
@@ -28,10 +34,11 @@ export function SetAllMovies(/* { allMovies, onSelectMovie }: SetAllMoviesProps 
 				}
 			/>
 			<div className={styles.listOfMovies}>
-				{allMovies.map((element) => (
+				{movies.map((element) => (
 					<div
+						key={element.id}
 						className={styles.movie}
-						onClick={() => handleSelectMovie(element, state)}
+						onClick={() => handleMovieClick(element)}
 					>
 						<img
 							src={element.attributes.poster}

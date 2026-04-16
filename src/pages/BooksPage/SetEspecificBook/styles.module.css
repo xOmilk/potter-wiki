@@ -1,13 +1,6 @@
-.container {
-	background: var(--background-item);
+.content {
 	height: fit-content;
-	box-shadow: var(--box-shadow);
-	border-radius: 1rem;
-	display: flex;
-	align-items: flex-start;
-	gap: 2rem;
-	padding: 2rem;
-	overflow: hidden;
+	padding: 0 1rem;
 }
 
 .backButton {
@@ -37,35 +30,41 @@
 	transform: translateX(-2px);
 }
 
-.img {
-	width: 280px;
-	height: 280px;
-	object-fit: cover;
-	border-radius: 0.75rem;
-	border: 2px solid var(--golden);
-	flex-shrink: 0;
-	transition: transform 0.3s ease;
+.resume {
+	display: flex;
+	gap: 2rem;
+	background: var(--background-item);
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: var(--box-shadow);
 }
 
-.img:hover {
-	transform: scale(1.05);
+.img {
+	width: 200px;
+	height: auto;
+	border-radius: 0.75rem;
+	flex-shrink: 0;
+	object-fit: cover;
+	border: 2px solid var(--golden);
 }
 
 .info {
 	flex: 1;
-	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 .info h3 {
-	font-size: 2rem;
-	margin-bottom: 1.5rem;
+	font-size: 2.2rem;
+	margin: 0;
 	color: var(--golden);
 	font-weight: 700;
 }
 
 .info p {
 	font-size: 1.1rem;
-	margin-bottom: 1rem;
+	margin: 0;
 	color: var(--text-color-default);
 	line-height: 1.6;
 }
@@ -75,22 +74,47 @@
 	font-weight: 600;
 }
 
-@media (max-width: 768px) {
-	.container {
+.info a {
+	color: var(--golden);
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.3s ease;
+}
+
+.info a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+	.resume {
 		flex-direction: column;
 		align-items: center;
-		gap: 1.5rem;
+		text-align: center;
+	}
+
+	.img {
+		width: 250px;
+	}
+
+	.info {
+		align-items: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.content {
+		padding: 0 0.5rem;
+	}
+
+	.resume {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
 		padding: 1.5rem 1rem;
 	}
 
 	.img {
-		width: 200px;
-		height: 200px;
-	}
-
-	.info {
-		text-align: center;
-		width: 100%;
+		width: 180px;
 	}
 
 	.info h3 {
@@ -98,7 +122,7 @@
 	}
 
 	.info p {
-		font-size: 1rem;
+		font-size: 0.95rem;
 	}
 
 	.backButton {
