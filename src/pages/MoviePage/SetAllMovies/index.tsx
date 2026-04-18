@@ -25,14 +25,6 @@ export function SetAllMovies({ movies }: SetAllMoviesProps) {
 
 	return (
 		<div className={styles.container}>
-			<FeedbackMessage
-				titleMessage="Lista de Filmes"
-				tipMessage={
-					<span>
-						<u>Clique</u> em algum filme para ver detalhes
-					</span>
-				}
-			/>
 			<div className={styles.listOfMovies}>
 				{movies.map((element) => (
 					<div

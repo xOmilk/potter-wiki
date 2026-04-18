@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useMovieContext } from "../../../contexts/MovieContext/useMovieContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import syles from "./styles.module.css";
+import { ArrowLeftIcon } from "lucide-react";
 
 function getYoutubeEmbed(url: string) {
 	// Remove possíveis barras no final
@@ -33,19 +34,19 @@ export function SetEspecificMovie() {
 
 	return (
 		<section className={syles.content}>
-			<button
-				onClick={() => navigate("/movies")}
-				className={syles.backButton}
-			>
-				← Voltar
-			</button>
-			<img
-				className={syles.img}
-				src={movie.attributes.poster}
-				alt=""
-			/>
-
 			<div className={syles.resume}>
+				<button
+					onClick={() => navigate("/movies")}
+					className={syles.backButton}
+				>
+					<ArrowLeftIcon />
+					<span>Voltar</span>
+				</button>
+				<img
+					className={syles.img}
+					src={movie.attributes.poster}
+					alt=""
+				/>
 				<h3>{movie.attributes.title}</h3>
 				<p>ID: {movie.id}</p>
 				<p>Data de Lançamento: {movie.attributes.release_date}</p>

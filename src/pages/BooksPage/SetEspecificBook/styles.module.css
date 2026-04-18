@@ -1,12 +1,17 @@
 .content {
 	height: fit-content;
 	padding: 0 1rem;
+	margin: 0 auto;
 }
 
 .backButton {
+	left: 0.5rem;
+	width: 20%;
+	max-width: 20%;
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 0.7rem;
 	margin-bottom: 1.5rem;
 	padding: 0.75rem 1.5rem;
 	background: var(--button-bg);
@@ -31,12 +36,14 @@
 }
 
 .resume {
+	max-width: 65%;
 	display: flex;
 	gap: 2rem;
 	background: var(--background-item);
 	padding: 2rem;
 	border-radius: 1rem;
 	box-shadow: var(--box-shadow);
+	margin: 0 auto;
 }
 
 .img {
@@ -86,6 +93,22 @@
 }
 
 @media (max-width: 850px) {
+	.resume {
+		max-width: 95%;
+		width: 95%;
+	}
+
+	.content {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+	}
+
+	.backButton {
+		max-width: 40%;
+		width: 40%;
+	}
+
 	.resume {
 		flex-direction: column;
 		align-items: center;

@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useBookContext } from "../../../contexts/BookContext/useBookContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import styles from "./styles.module.css";
+import { ArrowLeftIcon } from "lucide-react";
 
 export function SetEspecificBook() {
 	const { id } = useParams<{ id: string }>();
@@ -22,10 +23,11 @@ export function SetEspecificBook() {
 	return (
 		<section className={styles.content}>
 			<button
-				onClick={() => navigate("/books")}
+				onClick={() => navigate("/movies")}
 				className={styles.backButton}
 			>
-				← Voltar
+				<ArrowLeftIcon />
+				<span>Voltar</span>
 			</button>
 			<div className={styles.resume}>
 				<img
@@ -44,7 +46,7 @@ export function SetEspecificBook() {
 					<p>
 						<strong>Data de Lançamento:</strong>{" "}
 						{new Date(
-							book.attributes.release_date
+							book.attributes.release_date,
 						).toLocaleDateString("pt-BR")}
 					</p>
 					<p>

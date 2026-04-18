@@ -8,7 +8,7 @@ import { useMovieContext } from "../../contexts/MovieContext/useMovieContext";
 MoviesComponents.SetAllMovies = SetAllMovies;
 
 export function MoviesComponents() {
-	const { state } = useMovieContext();
+	const { state} = useMovieContext();
 	const [searchValue, setSearchValue] = useState("");
 	const { id } = useParams();
 
