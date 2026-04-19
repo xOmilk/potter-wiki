@@ -16,13 +16,16 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
 		return { type: storageTheme };
 	});
 
+	const setTheme: React.Dispatch<React.SetStateAction<ThemeType>> = (newTheme) => {
+		const resolvedTheme = typeof newTheme === "function" ? newTheme(state) : newTheme;
+		setState(resolvedTheme);
+		document.documentElement.setAttribute("data-theme", resolvedTheme.type);
+		localStorage.setItem("potterwiki-theme", resolvedTheme.type);
+	};
+
 	const theme = {
 		value: state,
-		setTheme: (newTheme: ThemeType) => {
-			setState(newTheme);
-			document.documentElement.setAttribute("data-theme", newTheme.type);
-			localStorage.setItem("potterwiki-theme", newTheme.type);
-		},
+		setTheme,
 	};
 
 	// Apply theme on mount

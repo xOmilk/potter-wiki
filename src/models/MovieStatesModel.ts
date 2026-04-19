@@ -9,4 +9,16 @@ export type MovieStatesModel = {
 		value: string;
 		setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 	};
+	dontShow: {
+		value: boolean;
+		setDontShow: React.Dispatch<React.SetStateAction<boolean>>;
+	};
+	showAll: {
+		value: boolean;
+		setShowAll: React.Dispatch<React.SetStateAction<boolean>>;
+	};
+	wantedMovie: {
+		value: Movie | null;
+		setWantedMovie: React.Dispatch<React.SetStateAction<Movie | null>>;
+	};
 };

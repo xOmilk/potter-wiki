@@ -5,7 +5,7 @@ export type ThemeType = {
 	type: TypesOfThemes;
 };
 
-type ThemeContextType = {
+export type ThemeContextType = {
 	value: ThemeType;
 	setTheme: React.Dispatch<React.SetStateAction<ThemeType>>;
 };
