@@ -6,11 +6,9 @@
 	justify-content: flex-start;
 	gap: 1rem;
 
-	background: var(--background-item);
 	color: var(--text-color-default);
 	padding: 2rem;
 	border-radius: 1rem;
-	box-shadow: var(--box-shadow);
 
 	& h3 {
 		font-weight: bold;

@@ -12,21 +12,33 @@ export function HomePage() {
 			<section className={styles.hero}>
 				<div className={styles.heroContent}>
 					<h1>Bem-vindo à Harry Potter Wiki</h1>
-					<p>Explore o mundo mágico de Harry Potter com informações detalhadas sobre filmes, personagens e feitiços</p>
+					<p>
+						Explore o mundo mágico de Harry Potter com informações
+						detalhadas sobre filmes, personagens e feitiços
+					</p>
 				</div>
 			</section>
 
 			<section className={styles.cardsSection}>
-				<div className={styles.card} onClick={() => navigate("/movies")}>
+				<div
+					className={styles.card}
+					onClick={() => navigate("/movies")}
+				>
 					<div className={styles.cardIcon}>
 						<FaFilm />
 					</div>
 					<h2>Filmes</h2>
-					<p>Descubra detalhes sobre todos os filmes da saga Harry Potter</p>
+					<p>
+						Descubra detalhes sobre todos os filmes da saga Harry
+						Potter
+					</p>
 					<button className={styles.cardButton}>Explorar</button>
 				</div>
 
-				<div className={styles.card} onClick={() => navigate("/characters")}>
+				<div
+					className={styles.card}
+					onClick={() => navigate("/characters")}
+				>
 					<div className={styles.cardIcon}>
 						<FaUserFriends />
 					</div>
@@ -35,7 +47,10 @@ export function HomePage() {
 					<button className={styles.cardButton}>Explorar</button>
 				</div>
 
-				<div className={styles.card} onClick={() => navigate("/spells")}>
+				<div
+					className={styles.card}
+					onClick={() => navigate("/spells")}
+				>
 					<div className={styles.cardIcon}>
 						<GiMagicSwirl />
 					</div>
@@ -46,7 +61,7 @@ export function HomePage() {
 
 				<div className={styles.card} onClick={() => navigate("/books")}>
 					<div className={styles.cardIcon}>
-					<FaBook />
+						<FaBook />
 					</div>
 					<h2>Livros</h2>
 					<p>Explore todos os livros oficiais da saga Harry Potter</p>
@@ -57,11 +72,9 @@ export function HomePage() {
 			<section className={styles.aboutSection}>
 				<h2>Sobre este site</h2>
 				<p>
-					Esta é uma aplicação educacional criada para explorar e praticar conceitos modernos de desenvolvimento web, 
+					Esta é uma aplicação educacional criada para explorar e
+					praticar conceitos modernos de desenvolvimento web,
 					utilizando dados reais do universo de Harry Potter.
-				</p>
-				<p>
-					Todo o código-fonte é aberto e disponível em nossa <a href="https://github.com/xOmilk/potter-wiki" target="_blank" rel="noreferrer">documentação</a>.
 				</p>
 			</section>
 		</Container>

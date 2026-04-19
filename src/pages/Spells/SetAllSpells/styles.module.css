@@ -5,10 +5,10 @@
 	width: 100%;
 	color: var(--text-color-default);
 
-	background: var(--background-item);
+	/* background: var(--background-item); */
 	padding: 2rem;
 	border-radius: 1rem;
-	box-shadow: var(--box-shadow);
+	/* box-shadow: var(--box-shadow); */
 }
 
 .listItem {

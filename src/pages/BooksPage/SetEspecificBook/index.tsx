@@ -3,6 +3,7 @@ import { useBookContext } from "../../../contexts/BookContext/useBookContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import styles from "./styles.module.css";
 import { ArrowLeftIcon } from "lucide-react";
+import { PageRoutesNames } from "../../../constants/PageRoutesName";
 
 export function SetEspecificBook() {
 	const { id } = useParams<{ id: string }>();
@@ -23,7 +24,7 @@ export function SetEspecificBook() {
 	return (
 		<section className={styles.content}>
 			<button
-				onClick={() => navigate("/movies")}
+				onClick={() => navigate(PageRoutesNames.books)}
 				className={styles.backButton}
 			>
 				<ArrowLeftIcon />
