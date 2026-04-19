@@ -9,7 +9,7 @@ import { AppRouter } from "./routes/AppRouter";
 
 export function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/potter-wiki">
 			<AppRouter />
 			<Toaster position="top-center" />
 		</BrowserRouter>
