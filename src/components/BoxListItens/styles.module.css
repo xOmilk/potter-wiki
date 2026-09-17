@@ -10,3 +10,11 @@
 	justify-content: center;
 	align-items: center;
 }
+
+@media (max-width: 768px) {
+	.boxPatternStyle {
+		width: 100%;
+		padding: 16px 12px;
+		border-radius: 12px;
+	}
+}
