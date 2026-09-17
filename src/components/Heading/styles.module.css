@@ -1,24 +1,42 @@
 .header {
 	text-align: center;
-	position: relative;
-	margin: auto auto;
+	margin: 0 auto;
+	padding: 2rem 0 1rem;
 	width: 80%;
-	font-size: 2rem;
-	h1 {
-		line-height: normal;
-		letter-spacing: 1.5px;
-	}
+}
+
+.header h1 {
+	font-size: 2.6rem;
+	font-weight: 600;
+	letter-spacing: 3px;
+	color: var(--golden);
+	line-height: 1.2;
+}
+
+/* ornamento decorativo abaixo do título */
+.header h1::after {
+	content: '⸻';
+	display: block;
+	font-size: 0.9rem;
+	letter-spacing: 6px;
+	opacity: 0.4;
+	margin-top: 0.5rem;
+	color: var(--golden);
 }
 
 @media (max-width: 610px) {
 	.header {
-		width: 90%;
-		font-size: 1.5rem;
+		width: 92%;
+	}
+
+	.header h1 {
+		font-size: 2rem;
+		letter-spacing: 2px;
 	}
 }
+
 @media (max-width: 380px) {
-	.header {
-		font-size: 1.2rem;
-		width: 100%;
+	.header h1 {
+		font-size: 1.6rem;
 	}
 }
