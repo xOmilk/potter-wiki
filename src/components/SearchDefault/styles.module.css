@@ -23,7 +23,7 @@
 }
 
 .research input::placeholder {
-	color: rgba(184, 134, 11, 0.6);
+	color: color-mix(in srgb, var(--golden) 50%, transparent);
 }
 
 .research input:focus {

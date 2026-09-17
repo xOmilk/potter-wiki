@@ -59,12 +59,12 @@
 
 .item:hover svg,
 .item:focus-within svg {
-	color: var(--text-color-default);
+	color: #1a1a1a;
 }
 
 .item:hover p,
 .item:focus-within p {
-	color: var(--text-color-default);
+	color: #1a1a1a;
 }
 
 .item p {

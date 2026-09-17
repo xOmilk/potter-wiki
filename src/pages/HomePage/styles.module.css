@@ -78,7 +78,7 @@
 
 .cardButton {
 	background: var(--golden);
-	color: var(--text-color-default);
+	color: #1a1a1a;
 	border: none;
 	padding: 0.75rem 1.5rem;
 	border-radius: 0.5rem;
