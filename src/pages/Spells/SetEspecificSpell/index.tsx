@@ -1,9 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useSpellContext } from "../../../contexts/SpellContext/useSpellContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
-import { BoxListItens } from "../../../components/BoxListItens";
 import { SpellImage } from "../../../components/SpellImage";
-import { ArrowLeftIcon } from "lucide-react";
+import { BackButton } from "../../../components/BackButton";
 
 import styles from "./styles.module.css";
 
@@ -24,12 +23,9 @@ export function SetEspecificSpell() {
 	}
 
 	return (
-		<BoxListItens>
-			<button onClick={() => navigate("/spells")} className={styles.backButton}>
-				<ArrowLeftIcon size={16} />
-				Voltar
-			</button>
-			<div className={styles.container}>
+		<div className={styles.content}>
+			<BackButton onClick={() => navigate("/spells")} />
+			<div className={styles.card}>
 				<SpellImage
 					slug={spell.attributes.slug}
 					potterDbImage={spell.attributes.image}
@@ -73,6 +69,6 @@ export function SetEspecificSpell() {
 					)}
 				</div>
 			</div>
-		</BoxListItens>
+		</div>
 	);
 }

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useCharacterContext } from "../../../contexts/CharacterContext/useCharacterContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
+import { BackButton } from "../../../components/BackButton";
 
 import styles from "./style.module.css";
 
@@ -17,33 +18,36 @@ export function SetEspecificCharacter() {
 		return (
 			<FeedbackMessage
 				titleMessage="Personagem não encontrado"
-				tipMessage="Volte a página anterior e tente novamente"
+				tipMessage="Volte à página anterior e tente novamente"
 			/>
 		);
 	}
 
 	return (
-		<section className={styles.content}>
-			<button
-				onClick={() => navigate("/characters")}
-				className={styles.backButton}
-			>
-				← Voltar
-			</button>
-			<div className={styles.resume}>
+		<div className={styles.content}>
+			<BackButton onClick={() => navigate("/characters")} />
+			<div className={styles.card}>
 				<img
 					src={character.image}
-					alt={`Imagem do ator ${character.interpretedBy} em harry potter`}
-					title={`Imagem do ator ${character.interpretedBy} em harry potter`}
+					alt={`${character.fullName} em Harry Potter`}
+					className={styles.img}
 				/>
 				<div className={styles.info}>
 					<h3>{character.fullName}</h3>
-					<p>Apelido: {character.nickname}</p>
-					<p>Data de nascimento: {character.birthdate}</p>
-					<p>Interpretado por: {character.interpretedBy}</p>
-					<p>Casa pertencente: {character.hogwartsHouse}</p>
+					<p>
+						<strong>Apelido:</strong> {character.nickname}
+					</p>
+					<p>
+						<strong>Data de nascimento:</strong> {character.birthdate}
+					</p>
+					<p>
+						<strong>Interpretado por:</strong> {character.interpretedBy}
+					</p>
+					<p>
+						<strong>Casa:</strong> {character.hogwartsHouse}
+					</p>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }

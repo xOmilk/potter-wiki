@@ -1,89 +1,59 @@
 .content {
-	width: fit-content;
-	position: relative;
-	background: var(--background-item);
-	height: fit-content;
-	box-shadow: var(--box-shadow);
-	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 860px;
 	margin: 0 auto;
-	display: flex;
-	gap: 0.5rem;
-	flex-flow: column;
-	align-items: center;
+	padding: 0 1rem;
 }
 
-.backButton {
-	left: 0.5rem;
-	width: 20%;
-	max-width: 30%;
+.card {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.7rem;
-	margin-bottom: 1.5rem;
-	padding: 0.75rem 1.5rem;
-	background: var(--button-bg);
-	color: var(--text-color-default);
+	gap: 2rem;
+	background: var(--background-item);
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: var(--box-shadow);
+}
+
+.img {
+	width: 220px;
+	height: auto;
+	border-radius: 0.75rem;
+	flex-shrink: 0;
+	object-fit: cover;
 	border: 2px solid var(--golden);
-	border-radius: 0.5rem;
-	font-size: 1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	text-decoration: none;
 }
 
-.backButton:hover {
-	background: var(--button-hover);
-	transform: translateX(-4px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.resume {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	min-width: 0;
 }
 
-.backButton:active {
-	transform: translateX(-2px);
-}
-
-img {
-	height: inherit;
-	float: left;
-	position: relative;
-	top: inherit;
-	float: left;
-	overflow: hidden;
-	width: 300px;
-	height: 430px;
-	border-radius: 16px;
-	transition: transform 0.2s;
-}
-img:hover {
-	transform: scale(1.03);
-}
-.content .resume {
-	padding: 32px 32px 24px 32px;
-	border-radius: 16px;
-	max-width: 800px;
-}
-
-.content .resume h3 {
-	padding: 0.3rem;
-	font-size: 2.2rem;
-	margin-bottom: 18px;
+.resume h3 {
+	font-size: 2rem;
+	margin: 0;
 	color: var(--golden);
+	font-weight: 700;
 }
 
-.content .resume p {
-	padding: 1rem;
-	font-size: 1.1rem;
-	margin-bottom: 10px;
+.resume p {
+	font-size: 1.05rem;
+	margin: 0;
 	color: var(--text-color-default);
+	line-height: 1.6;
 }
 
 .videoWrapper {
 	position: relative;
 	width: 100%;
-	max-width: 800px; /* ajuste conforme seu layout */
 	aspect-ratio: 16 / 9;
-	margin: 0 auto;
+	margin-top: 1rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
 }
 
 .videoWrapper iframe {
@@ -93,40 +63,22 @@ img:hover {
 	left: 0;
 	top: 0;
 	border: none;
-	overflow: hidden;
-	display: block;
-}
-@media (max-width: 850px) {
-	.content {
-		width: 90%;
-	}
 }
 
-@media (max-width: 600px) {
-	.backButton {
-		margin: 1rem;
-		max-width: 40%;
-		width: 40%;
-	}
-
-	.content {
-		width: 80%;
-		display: flex;
-		flex-flow: column;
-		justify-content: center;
+@media (max-width: 700px) {
+	.card {
+		flex-direction: column;
 		align-items: center;
-		transition: all 0.3s;
+		text-align: center;
+		padding: 1.5rem 1rem;
 	}
 
-	.content img {
-		display: block;
-		text-align: center;
-		margin-top: 1rem;
+	.img {
+		width: 180px;
 	}
-	.content .resume {
-		padding-top: 0;
-	}
-	.content .resume h3 {
-		text-align: center;
+
+	.resume {
+		align-items: center;
+		width: 100%;
 	}
 }

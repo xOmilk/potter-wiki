@@ -1,110 +1,70 @@
 .content {
-	background: var(--background-item);
-	height: fit-content;
-	box-shadow: var(--box-shadow);
-	border-radius: 1rem;
-	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 860px;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
-.backButton {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	margin-bottom: 1.5rem;
-	padding: 0.75rem 1.5rem;
-	background: var(--button-bg);
-	color: var(--text-color-default);
-	border: 2px solid var(--golden);
-	border-radius: 0.5rem;
-	font-size: 1rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	text-decoration: none;
-}
-
-.backButton:hover {
-	background: var(--button-hover);
-	transform: translateX(-4px);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.backButton:active {
-	transform: translateX(-2px);
-}
-
-.resume {
+.card {
 	display: flex;
 	gap: 2rem;
-	justify-content: center;
-	align-items: center;
-	padding: 32px 32px 24px 32px;
-	border-radius: 16px;
+	background: var(--background-item);
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: var(--box-shadow);
 }
 
-.resume img {
-	width: 100%;
-	max-width: 300px;
-	min-width: 120px;
+.img {
+	width: 220px;
 	height: auto;
-	border-radius: 16px;
-	transition: all 0.2s ease-in-out;
+	border-radius: 0.75rem;
+	flex-shrink: 0;
 	object-fit: cover;
-	box-shadow: var(--box-shadow);
-	display: block;
+	border: 2px solid var(--golden);
+	transition: transform 0.3s ease;
 }
 
-.resume img:hover {
+.img:hover {
 	transform: scale(1.03);
-	box-shadow: var(--box-shadow);
+}
+
+.info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	min-width: 0;
 }
 
 .info h3 {
-	font-size: 2.2rem;
-	margin-bottom: 18px;
+	font-size: 2rem;
+	margin: 0;
 	color: var(--golden);
+	font-weight: 700;
 }
 
 .info p {
-	font-size: 1.1rem;
-	margin-bottom: 10px;
+	font-size: 1.05rem;
+	margin: 0;
 	color: var(--text-color-default);
+	line-height: 1.6;
 }
 
-@media (max-width: 850px) {
-	.content {
-		max-width: 98%;
-		padding: 0 0.5rem;
-	}
-	.resume {
-		gap: 1.2rem;
-		padding: 24px 8px 18px 8px;
-	}
-	.resume img {
-		max-width: 170px;
-	}
-}
-
-@media (max-width: 650px) {
-	.resume {
+@media (max-width: 700px) {
+	.card {
 		flex-direction: column;
 		align-items: center;
-		gap: 1rem;
-		padding: 16px;
+		text-align: center;
+		padding: 1.5rem 1rem;
 	}
-	.resume img {
-		max-width: 140px;
-		min-width: 80px;
-		width: 100%;
+
+	.img {
+		width: 180px;
 	}
-	.info h3 {
-		font-size: 1.4rem;
-		margin-bottom: 12px;
-	}
-	.info p {
-		font-size: 1rem;
-		margin-bottom: 7px;
+
+	.info {
+		align-items: center;
 	}
 }

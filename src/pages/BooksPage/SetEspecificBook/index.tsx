@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useBookContext } from "../../../contexts/BookContext/useBookContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
-import styles from "./styles.module.css";
-import { ArrowLeftIcon } from "lucide-react";
+import { BackButton } from "../../../components/BackButton";
 import { PageRoutesNames } from "../../../constants/PageRoutesName";
+
+import styles from "./styles.module.css";
 
 export function SetEspecificBook() {
 	const { id } = useParams<{ id: string }>();
@@ -16,21 +17,15 @@ export function SetEspecificBook() {
 		return (
 			<FeedbackMessage
 				titleMessage="Livro não encontrado"
-				tipMessage="Volte a página anterior e tente novamente"
+				tipMessage="Volte à página anterior e tente novamente"
 			/>
 		);
 	}
 
 	return (
-		<section className={styles.content}>
-			<button
-				onClick={() => navigate(PageRoutesNames.books)}
-				className={styles.backButton}
-			>
-				<ArrowLeftIcon />
-				<span>Voltar</span>
-			</button>
-			<div className={styles.resume}>
+		<div className={styles.content}>
+			<BackButton onClick={() => navigate(PageRoutesNames.books)} />
+			<div className={styles.card}>
 				<img
 					src={book.attributes.cover}
 					alt={`Capa de ${book.attributes.title}`}
@@ -46,30 +41,27 @@ export function SetEspecificBook() {
 					</p>
 					<p>
 						<strong>Data de Lançamento:</strong>{" "}
-						{new Date(
-							book.attributes.release_date,
-						).toLocaleDateString("pt-BR")}
+						{new Date(book.attributes.release_date).toLocaleDateString("pt-BR")}
 					</p>
-					<p>
-						<strong>Dedicatória:</strong>{" "}
-						{book.attributes.dedication}
-					</p>
-					<p>
-						<strong>Resumo:</strong> {book.attributes.summary}
-					</p>
+					{book.attributes.dedication && (
+						<p>
+							<strong>Dedicatória:</strong> {book.attributes.dedication}
+						</p>
+					)}
+					{book.attributes.summary && (
+						<p>
+							<strong>Resumo:</strong> {book.attributes.summary}
+						</p>
+					)}
 					{book.attributes.wiki && (
 						<p>
-							<a
-								href={book.attributes.wiki}
-								target="_blank"
-								rel="noreferrer"
-							>
+							<a href={book.attributes.wiki} target="_blank" rel="noreferrer">
 								Ler no Wiki
 							</a>
 						</p>
 					)}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 }
