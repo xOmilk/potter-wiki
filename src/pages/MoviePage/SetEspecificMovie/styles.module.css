@@ -10,7 +10,6 @@
 .card {
 	display: flex;
 	gap: 2rem;
-	align-items: flex-start;
 	background: var(--background-item);
 	padding: 2rem;
 	border-radius: 1rem;
@@ -18,8 +17,9 @@
 }
 
 .img {
-	width: 220px;
-	height: 320px;
+	width: 280px;
+	height: 100%;
+	min-height: 300px;
 	border-radius: 0.75rem;
 	flex-shrink: 0;
 	object-fit: cover;
