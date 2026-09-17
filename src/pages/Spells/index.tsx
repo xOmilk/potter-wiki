@@ -12,7 +12,7 @@ function SpellsComponents() {
 
 	const filteredSpells = useMemo(() => {
 		return allSpells.value.filter((spell) =>
-			spell.spell.toLowerCase().includes(valueText.toLowerCase())
+			spell.attributes.name.toLowerCase().includes(valueText.toLowerCase())
 		);
 	}, [allSpells.value, valueText]);
 

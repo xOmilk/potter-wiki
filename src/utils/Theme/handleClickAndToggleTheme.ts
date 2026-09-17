@@ -9,11 +9,10 @@ export function handleClickAndToggleTheme(
 	type: TypesOfThemes,
 	setTheme: React.Dispatch<React.SetStateAction<ThemeType>>
 ) {
-	const nextTheme = type === "classic" ? "light" : "classic";
+	const nextTheme = type === "escuro" ? "claro" : "escuro";
 	setTheme({ type: `${nextTheme}` });
 
-	/* toastHotAdapter.info(`O tema atualmente é ${type}`); */
-	toastHotAdapter.success(`O tema atualmente é: ${nextTheme}`);
+	toastHotAdapter.success(`Você trocou para o tema ${nextTheme}`);
 
 	document.documentElement.setAttribute("data-theme", nextTheme);
 	localStorage.setItem(THEME_NAME, nextTheme);

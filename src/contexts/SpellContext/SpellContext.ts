@@ -1,14 +1,10 @@
 import { createContext } from "react";
-import type { SpellType } from "../../types/SpellType";
+import type { Spell } from "../../types/SpellType";
 
 export type SpellContextType = {
 	allSpells: {
-		value: SpellType[];
-		setAllSpells: React.Dispatch<React.SetStateAction<SpellType[]>>;
-	};
-	selectedSpell: {
-		value: SpellType | null;
-		setSelectedSpell: React.Dispatch<React.SetStateAction<SpellType | null>>;
+		value: Spell[];
+		setAllSpells: React.Dispatch<React.SetStateAction<Spell[]>>;
 	};
 };
 
@@ -16,10 +12,6 @@ export const defaultSpellValue: SpellContextType = {
 	allSpells: {
 		value: [],
 		setAllSpells: () => {},
-	},
-	selectedSpell: {
-		value: null,
-		setSelectedSpell: () => {},
 	},
 };
 

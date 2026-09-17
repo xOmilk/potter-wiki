@@ -2,58 +2,75 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSpellContext } from "../../../contexts/SpellContext/useSpellContext";
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import { BoxListItens } from "../../../components/BoxListItens";
+import { SpellImage } from "../../../components/SpellImage";
+import { ArrowLeftIcon } from "lucide-react";
 
 import styles from "./styles.module.css";
 
 export function SetEspecificSpell() {
-	const { spellName } = useParams<{ spellName: string }>();
+	const { spellName: slug } = useParams<{ spellName: string }>();
 	const navigate = useNavigate();
 	const { allSpells } = useSpellContext();
 
-	const spell = allSpells.value.find(
-		(s) => s.spell.toLowerCase() === spellName?.toLowerCase()
-	);
+	const spell = allSpells.value.find((s) => s.attributes.slug === slug);
 
 	if (!spell) {
 		return (
 			<FeedbackMessage
 				titleMessage="Feitiço não encontrado"
-				tipMessage="Volte a página anterior e tente novamente"
+				tipMessage="Volte à página anterior e tente novamente"
 			/>
 		);
 	}
 
 	return (
 		<BoxListItens>
-			<button
-				onClick={() => navigate("/spells")}
-				className={styles.backButton}
-			>
-				← Voltar
+			<button onClick={() => navigate("/spells")} className={styles.backButton}>
+				<ArrowLeftIcon size={16} />
+				Voltar
 			</button>
 			<div className={styles.container}>
-				<img
-					src={
-						spell.spell.toLowerCase().match("wingardium")
-							? `https://hogwartslegacy.wiki.fextralife.com/file/Hogwarts-Legacy/thumbnails/levioso_spell_hogwarts_legacy_wiki_95px.jpg`
-							: `https://hogwartslegacy.wiki.fextralife.com/file/Hogwarts-Legacy/${spell.spell
-									.toLowerCase()
-									.replace(/\s+/g, "-")
-									.replace(/[^\w-]/g, "")}-hogwarts-legacy-wiki-guide.png`
-					}
-					onError={(e) => {
-						(e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect fill="%23666" width="200" height="200"/><text x="50%" y="50%" text-anchor="middle" fill="white">Imagem indisponível</text></svg>';
-					}}
-					alt={spell.spell}
+				<SpellImage
+					slug={spell.attributes.slug}
+					potterDbImage={spell.attributes.image}
+					alt={spell.attributes.name}
+					className={styles.img}
 				/>
 				<div className={styles.info}>
-					<h3>{spell.spell}</h3>
-					<p>
-						<strong>Uso:</strong> {spell.use}
-					</p>
-					<p>
-						<strong>Fonte:</strong> {spell.source}
-					</p>
+					<h3>{spell.attributes.name}</h3>
+					{spell.attributes.incantation && (
+						<p>
+							<strong>Encantamento:</strong>{" "}
+							<em>"{spell.attributes.incantation}"</em>
+						</p>
+					)}
+					{spell.attributes.category && (
+						<p>
+							<strong>Categoria:</strong> {spell.attributes.category}
+						</p>
+					)}
+					{spell.attributes.effect && (
+						<p>
+							<strong>Efeito:</strong> {spell.attributes.effect}
+						</p>
+					)}
+					{spell.attributes.light && (
+						<p>
+							<strong>Luz:</strong> {spell.attributes.light}
+						</p>
+					)}
+					{spell.attributes.creator && (
+						<p>
+							<strong>Criado por:</strong> {spell.attributes.creator}
+						</p>
+					)}
+					{spell.attributes.wiki && (
+						<p>
+							<a href={spell.attributes.wiki} target="_blank" rel="noreferrer">
+								Ver no Wiki
+							</a>
+						</p>
+					)}
 				</div>
 			</div>
 		</BoxListItens>

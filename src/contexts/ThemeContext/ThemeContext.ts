@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export type TypesOfThemes = "light" | "classic";
+export type TypesOfThemes = "claro" | "escuro";
 export type ThemeType = {
 	type: TypesOfThemes;
 };
@@ -11,7 +11,7 @@ export type ThemeContextType = {
 };
 
 export const themeContextDefaultValue: ThemeContextType = {
-	value: { type: "classic" },
+	value: { type: "escuro" },
 	setTheme: () => {},
 };
 

@@ -12,7 +12,7 @@ type ThemeContextProviderProps = {
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
 	const [state, setState] = useState<ThemeType>(() => {
 		const storageTheme = (localStorage.getItem("potterwiki-theme") ??
-			"classic") as TypesOfThemes;
+			"escuro") as TypesOfThemes;
 		return { type: storageTheme };
 	});
 

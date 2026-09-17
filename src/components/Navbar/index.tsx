@@ -20,8 +20,8 @@ export function Navbar() {
 	} = useThemeContext();
 
 	const nextThemeIcon = {
-		classic: <SunIcon />,
-		light: <MoonIcon />,
+		escuro: <SunIcon />,
+		claro: <MoonIcon />,
 	};
 
 	return (
@@ -34,7 +34,7 @@ export function Navbar() {
 					}}
 				>
 					<AiFillHome />
-					<p>Home</p>
+					<span>Home</span>
 				</li>
 				<li
 					className={`${styles.item} ${styles.movies}`}
@@ -43,7 +43,7 @@ export function Navbar() {
 					}}
 				>
 					<FaFilm />
-					<p>Filmes</p>
+					<span>Filmes</span>
 				</li>
 				<li
 					className={`${styles.item} ${styles.characters}`}
@@ -52,7 +52,7 @@ export function Navbar() {
 					}}
 				>
 					<FaUserFriends />
-					<p>Personagens</p>
+					<span>Personagens</span>
 				</li>
 				<li
 					className={`${styles.item} ${styles.spells}`}
@@ -61,7 +61,7 @@ export function Navbar() {
 					}}
 				>
 					<GiMagicSwirl />
-					<p>Feitiços</p>
+					<span>Feitiços</span>
 				</li>
 				<li
 					className={`${styles.item} ${styles.books}`}
@@ -70,7 +70,7 @@ export function Navbar() {
 					}}
 				>
 					<FaBook />
-					<p>Livros</p>
+					<span>Livros</span>
 				</li>
 				<li
 					className={`${styles.item} ${styles.theme}`}
@@ -80,7 +80,7 @@ export function Navbar() {
 				>
 					<div title={`Tema atual: ${theme}`}>
 						{nextThemeIcon[theme]}
-						{<p>Mudar Tema</p>}
+						{<span>Mudar Tema</span>}
 					</div>
 				</li>
 			</ul>

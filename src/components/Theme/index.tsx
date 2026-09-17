@@ -3,8 +3,8 @@ import { useThemeContext } from "../../contexts/ThemeContext/useThemeContext";
 import { handleClickAndToggleTheme } from "../../utils/Theme/handleClickAndToggleTheme";
 
 const nextThemeIcon = {
-	classic: <SunIcon />,
-	light: <MoonIcon />,
+	escuro: <SunIcon />,
+	claro: <MoonIcon />,
 };
 
 export function Theme() {

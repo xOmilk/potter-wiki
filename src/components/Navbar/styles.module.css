@@ -16,6 +16,9 @@
 }
 
 .item {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
 	background: var(--background-navbar-item);
 	border-radius: 1rem;
 	padding: 0.7rem 1.2rem;

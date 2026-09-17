@@ -1,5 +1,5 @@
 :root,
-[data-theme="classic"] {
+[data-theme="escuro"] {
 	--dark-grey: #1e1e1e;
 	--text-color-default: #fff;
 	--golden: #ffe066;
@@ -14,7 +14,7 @@
 	--border-color: #3d3d3d;
 }
 
-[data-theme="light"] {
+[data-theme="claro"] {
 	--dark-grey: #f5f5f5;
 	--text-color-default: #1a1a1a;
 	--text-color-muted: #4a4a4a;
@@ -23,7 +23,7 @@
 	--background-item: rgba(250, 248, 245, 0.98);
 	--background-input: #fff8f0;
 	--box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-	--background-blue: linear-gradient(90deg, #f0e9e0 0%, #e8dcc8 100%);
+	--background-blue: linear-gradient(90deg, #ffe4c0 0%, #e7d5b6 100%);
 	--background-navbar-item: rgba(184, 134, 11, 0.08);
 	--button-bg: #b8860b;
 	--button-hover: #a67c52;
