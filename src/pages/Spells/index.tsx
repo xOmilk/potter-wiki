@@ -11,8 +11,10 @@ function SpellsComponents() {
 	const { allSpells } = useSpellContext();
 
 	const filteredSpells = useMemo(() => {
+		const search = valueText.toLowerCase();
 		return allSpells.value.filter((spell) =>
-			spell.attributes.name.toLowerCase().includes(valueText.toLowerCase())
+			spell.attributes.name.toLowerCase().includes(search) ||
+			(spell.attributes.incantation?.toLowerCase().includes(search) ?? false)
 		);
 	}, [allSpells.value, valueText]);
 
