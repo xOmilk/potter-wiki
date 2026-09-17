@@ -35,24 +35,26 @@ export function SetEspecificMovie() {
 		<div className={styles.content}>
 			<BackButton onClick={() => navigate("/movies")} />
 			<div className={styles.card}>
-				<img className={styles.img} src={movie.attributes.poster} alt={movie.attributes.title} />
-				<div className={styles.resume}>
-					<h3>{movie.attributes.title}</h3>
-					<p>
-						<strong>Lançamento:</strong> {movie.attributes.release_date}
-					</p>
-					<p>
-						<strong>Duração:</strong> {movie.attributes.running_time} minutos
-					</p>
-					<p>
-						<strong>Resumo:</strong> {movie.attributes.summary}
-					</p>
-					<div className={styles.videoWrapper}>
-						<iframe
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							src={getYoutubeEmbed(movie.attributes.trailer)}
-						/>
+				<div className={styles.top}>
+					<img className={styles.img} src={movie.attributes.poster} alt={movie.attributes.title} />
+					<div className={styles.resume}>
+						<h3>{movie.attributes.title}</h3>
+						<p>
+							<strong>Lançamento:</strong> {movie.attributes.release_date}
+						</p>
+						<p>
+							<strong>Duração:</strong> {movie.attributes.running_time} minutos
+						</p>
+						<p>
+							<strong>Resumo:</strong> {movie.attributes.summary}
+						</p>
 					</div>
+				</div>
+				<div className={styles.videoWrapper}>
+					<iframe
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						src={getYoutubeEmbed(movie.attributes.trailer)}
+					/>
 				</div>
 			</div>
 		</div>
