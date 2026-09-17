@@ -19,7 +19,7 @@
 
 .img {
 	width: 220px;
-	height: auto;
+	height: 320px;
 	border-radius: 0.75rem;
 	flex-shrink: 0;
 	object-fit: cover;
