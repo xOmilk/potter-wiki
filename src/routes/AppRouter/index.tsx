@@ -1,19 +1,19 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "../../layout/DefaultLayout";
 import { PageRoutesNames } from "../../constants/PageRoutesName";
-import { CharactersPage } from "../../pages/CharacterPage";
 import { MovieContextProvider } from "../../contexts/MovieContext/MovieContextProvider";
 import { SpellContextProvider } from "../../contexts/SpellContext/SpellContextProvider";
 import { CharacterContextProvider } from "../../contexts/CharacterContext/CharacterContextProvider";
 import { BookContextProvider } from "../../contexts/BookContext/BookContextProvider";
-import { Movies } from "../../pages/MoviePage";
-import { Spells } from "../../pages/Spells";
-import { BooksPage } from "../../pages/BooksPage";
 import { HomePage } from "../../pages/HomePage";
-import { SetEspecificMovie } from "../../pages/MoviePage/SetEspecificMovie";
-import { SetEspecificCharacter } from "../../pages/CharacterPage/SetEspecifCharacter";
-import { SetEspecificSpell } from "../../pages/Spells/SetEspecificSpell";
-import { SetEspecificBook } from "../../pages/BooksPage/SetEspecificBook";
+import { CharacterList } from "../../pages/Characters/CharacterList";
+import { CharacterDetail } from "../../pages/Characters/CharacterDetail";
+import { MovieList } from "../../pages/Movies/MovieList";
+import { MovieDetail } from "../../pages/Movies/MovieDetail";
+import { SpellList } from "../../pages/Spells/SpellList";
+import { SpellDetail } from "../../pages/Spells/SpellDetail";
+import { BookList } from "../../pages/Books/BookList";
+import { BookDetail } from "../../pages/Books/BookDetail";
 
 export function AppRouter() {
 	return (
@@ -24,41 +24,45 @@ export function AppRouter() {
 					path={PageRoutesNames.characters}
 					element={
 						<CharacterContextProvider>
-							<CharactersPage />
+							<Outlet />
 						</CharacterContextProvider>
 					}
 				>
-					<Route path=":index" element={<SetEspecificCharacter />} />
+					<Route index element={<CharacterList />} />
+					<Route path=":index" element={<CharacterDetail />} />
 				</Route>
 				<Route
 					path={PageRoutesNames.movies}
 					element={
 						<MovieContextProvider>
-							<Movies />
+							<Outlet />
 						</MovieContextProvider>
 					}
 				>
-					<Route path=":id" element={<SetEspecificMovie />} />
+					<Route index element={<MovieList />} />
+					<Route path=":id" element={<MovieDetail />} />
 				</Route>
 				<Route
 					path={PageRoutesNames.spells}
 					element={
 						<SpellContextProvider>
-							<Spells />
+							<Outlet />
 						</SpellContextProvider>
 					}
 				>
-					<Route path=":spellName" element={<SetEspecificSpell />} />
+					<Route index element={<SpellList />} />
+					<Route path=":spellName" element={<SpellDetail />} />
 				</Route>
 				<Route
 					path={PageRoutesNames.books}
 					element={
 						<BookContextProvider>
-							<BooksPage />
+							<Outlet />
 						</BookContextProvider>
 					}
 				>
-					<Route path=":id" element={<SetEspecificBook />} />
+					<Route index element={<BookList />} />
+					<Route path=":id" element={<BookDetail />} />
 				</Route>
 			</Route>
 		</Routes>

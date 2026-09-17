@@ -14,6 +14,7 @@ export type allCharacters = {
 export type CharacterContextType = {
 	especificCharacter: EspecificCharacter;
 	allCharacters: allCharacters;
+	isLoading: boolean;
 };
 
 export const defaultCharacterValue: CharacterContextType = {
@@ -33,6 +34,7 @@ export const defaultCharacterValue: CharacterContextType = {
 		},
 		setEspecificCharacter: () => {},
 	},
+	isLoading: true,
 };
 
 export const CharacterContext = createContext(defaultCharacterValue);

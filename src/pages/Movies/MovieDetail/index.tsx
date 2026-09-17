@@ -11,7 +11,7 @@ function getYoutubeEmbed(url: string) {
 	return `https://www.youtube.com/embed/${videoId}`;
 }
 
-export function SetEspecificMovie() {
+export function MovieDetail() {
 	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
 	const {
@@ -36,7 +36,11 @@ export function SetEspecificMovie() {
 			<BackButton onClick={() => navigate("/movies")} />
 			<div className={styles.card}>
 				<div className={styles.top}>
-					<img className={styles.img} src={movie.attributes.poster} alt={movie.attributes.title} />
+					<img
+						className={styles.img}
+						src={movie.attributes.poster}
+						alt={movie.attributes.title}
+					/>
 					<div className={styles.resume}>
 						<h3>{movie.attributes.title}</h3>
 						<p>

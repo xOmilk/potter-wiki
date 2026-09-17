@@ -3,9 +3,9 @@ import { useCharacterContext } from "../../../contexts/CharacterContext/useChara
 import { FeedbackMessage } from "../../../components/FeedbackMessage";
 import { BackButton } from "../../../components/BackButton";
 
-import styles from "./style.module.css";
+import styles from "./styles.module.css";
 
-export function SetEspecificCharacter() {
+export function CharacterDetail() {
 	const { index } = useParams<{ index: string }>();
 	const navigate = useNavigate();
 	const { allCharacters } = useCharacterContext();

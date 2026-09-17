@@ -7,10 +7,9 @@ type BookContextProviderProps = {
 	children: React.ReactNode;
 };
 
-export function BookContextProvider({
-	children,
-}: BookContextProviderProps) {
+export function BookContextProvider({ children }: BookContextProviderProps) {
 	const [allBooks, setAllBooks] = useState<Book[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchBooks = async () => {
@@ -19,6 +18,8 @@ export function BookContextProvider({
 				setAllBooks(books);
 			} catch (error) {
 				console.error("Erro ao carregar livros:", error);
+			} finally {
+				setIsLoading(false);
 			}
 		};
 		fetchBooks();
@@ -26,6 +27,7 @@ export function BookContextProvider({
 
 	const contextValue = {
 		allBooks: { value: allBooks, setAllBooks },
+		isLoading,
 	};
 
 	return (

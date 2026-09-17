@@ -21,4 +21,5 @@ export type MovieStatesModel = {
 		value: Movie | null;
 		setWantedMovie: React.Dispatch<React.SetStateAction<Movie | null>>;
 	};
+	isLoading: boolean;
 };

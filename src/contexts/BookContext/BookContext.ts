@@ -6,6 +6,7 @@ export type BookContextType = {
 		value: Book[];
 		setAllBooks: React.Dispatch<React.SetStateAction<Book[]>>;
 	};
+	isLoading: boolean;
 };
 
 export const defaultBookValue: BookContextType = {
@@ -13,6 +14,7 @@ export const defaultBookValue: BookContextType = {
 		value: [],
 		setAllBooks: () => {},
 	},
+	isLoading: true,
 };
 
 export const BookContext = createContext(defaultBookValue);

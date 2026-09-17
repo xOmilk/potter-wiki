@@ -6,7 +6,7 @@ import { PageRoutesNames } from "../../../constants/PageRoutesName";
 
 import styles from "./styles.module.css";
 
-export function SetEspecificBook() {
+export function BookDetail() {
 	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
 	const { allBooks } = useBookContext();

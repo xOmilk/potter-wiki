@@ -30,4 +30,5 @@ export const movieContextDefaultValue: MovieStatesModel = {
 		value: null,
 		setWantedMovie: noopSetWantedMovie,
 	},
+	isLoading: true,
 };

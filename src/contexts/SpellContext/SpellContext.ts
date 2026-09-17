@@ -6,6 +6,7 @@ export type SpellContextType = {
 		value: Spell[];
 		setAllSpells: React.Dispatch<React.SetStateAction<Spell[]>>;
 	};
+	isLoading: boolean;
 };
 
 export const defaultSpellValue: SpellContextType = {
@@ -13,6 +14,7 @@ export const defaultSpellValue: SpellContextType = {
 		value: [],
 		setAllSpells: () => {},
 	},
+	isLoading: true,
 };
 
 export const SpellContext = createContext(defaultSpellValue);

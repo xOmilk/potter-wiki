@@ -6,7 +6,7 @@ import { BackButton } from "../../../components/BackButton";
 
 import styles from "./styles.module.css";
 
-export function SetEspecificSpell() {
+export function SpellDetail() {
 	const { spellName: slug } = useParams<{ spellName: string }>();
 	const navigate = useNavigate();
 	const { allSpells } = useSpellContext();

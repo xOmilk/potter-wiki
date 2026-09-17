@@ -13,12 +13,16 @@ export function MovieContextProvider({ children }: MovieContextProviderProps) {
 	const [dontShow, setDontShow] = useState<boolean>(false);
 	const [showAll, setShowAll] = useState<boolean>(true);
 	const [wantedMovie, setWantedMovie] = useState<Movie | null>(null);
+	const [isLoading, setIsLoading] = useState(true);
 
-	// Fetch all movies on mount
 	useEffect(() => {
 		const fetchMovies = async () => {
-			const movies = await fetchAllMovies();
-			setAllMoviesData(movies);
+			try {
+				const movies = await fetchAllMovies();
+				setAllMoviesData(movies);
+			} finally {
+				setIsLoading(false);
+			}
 		};
 		fetchMovies();
 	}, []);
@@ -29,6 +33,7 @@ export function MovieContextProvider({ children }: MovieContextProviderProps) {
 		dontShow: { value: dontShow, setDontShow },
 		showAll: { value: showAll, setShowAll },
 		wantedMovie: { value: wantedMovie, setWantedMovie },
+		isLoading,
 	};
 
 	return (
